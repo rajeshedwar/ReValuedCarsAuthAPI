@@ -6,11 +6,11 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ReValuedCarsAuthAPI.Models;
 using ReValuedCarsAuthAPI.Services;
-using Microsoft.AspNetCore.Cors;
+
 
 namespace ReValuedCarsAuthAPI.Controllers
 {
-    [EnableCors("AllowAll")]
+    
     [Route("api/[controller]")]
     [ApiController]
     public class AuthController : ControllerBase
