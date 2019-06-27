@@ -36,10 +36,10 @@ namespace ReValuedCarsAuthAPI.Controllers
         }
 
         [HttpPost("token")]
-        public ActionResult<string> Token([FromBody] LoginModel login)
+        public ActionResult<JClient> Token([FromBody] LoginModel login)
         {
             var token = iauthManager.AuthUsers(login);
-            if (string.IsNullOrEmpty(token))
+            if (string.IsNullOrEmpty(token.Token))
             {
                 return Unauthorized("Invalid userid and password");
             }

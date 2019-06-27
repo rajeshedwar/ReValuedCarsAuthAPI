@@ -35,13 +35,19 @@ namespace ReValuedCarsAuthAPI.Services
             };
         }
 
-        public string AuthUsers(LoginModel user)
+        public JClient AuthUsers(LoginModel user)
         {
             var result = authdb.Users.SingleOrDefault(c => c.Email == user.email && c.Password == user.password);
             if (result != null)
             {
                 string token = GenerateToken(user.email, user.password);
-                return token;
+                var jToken = new JClient()
+                {
+                    Token = token,
+                    Email = user.email,
+                    UserId = result.Id
+                };
+                return jToken;
             }
             return null;
         }

@@ -10,6 +10,6 @@ namespace ReValuedCarsAuthAPI.Services
     {
         Task<dynamic> AddUserAsync(User user);
 
-        string AuthUsers(LoginModel user);
+        JClient AuthUsers(LoginModel user);
     }
 }
